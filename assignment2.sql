@@ -26,3 +26,44 @@ INSERT INTO students (name, age, gender, enrollment_date, program) VALUES
 -- Verifying the data insertion is correct
 
 SELECT * FROM students;
+
+-- Step 3
+-- Select all columns for students in the 'Data Science' program
+SELECT * FROM students
+WHERE program = 'Data Science';
+
+-- Finding the total number of students and display it as 'Total Students'
+SELECT COUNT(*) AS 'Total Students' FROM students;
+
+-- Step 4
+-- Display the current date in a column named 'Today's Date';
+SELECT CURRENT_DATE() AS `Today's Date`;
+
+-- Select students names in uppercase and their enrolment dates
+SELECT
+    UPPER(name) AS student_name,
+    enrollment_date
+FROM 
+    students;
+
+--step 5
+-- Count students in each program and order by the count
+SELECT
+    program,
+    COUNT(*) AS `Number of Students`
+FROM
+    students
+GROUP BY
+    program
+ORDER BY
+    `Number of Students` DESC;
+
+-- Find then name and age of the youngest student
+SELECT
+    name,
+    age
+FROM
+    students
+ORDER BY
+    age ASC
+LIMIT 1;
